@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/ko-chart.js"></script>
+</head>
+<h2>Index</h2>
+<h1>Knockout Chart Binding Example</h1>
+<style>
+    .Chart {
+  background: #212733;
+  border-radius: 15px;
+  box-shadow: 0px 2px 15px rgba(25, 25, 25, 0.27);
+  margin:  25px 0;
+}
+
+.Chart h2 {
+  margin-top: 0;
+  padding: 15px 0;
+  color:  rgba(255, 0,0, 0.5);
+  border-bottom: 1px solid #323d54;
+}
+canvas{
+  width:400px !important;
+  height:300px !important;
+}
+</style>
+<body>
+    <div id="line-example">
+        <h2>Simple Line Chart Example</h2>
+        <canvas id="some-simple-line-chart"
+                data-bind="chart: { type: 'line', data: SimpleLineData }"></canvas>
+        <p>The above chart is generated using the data in the view model and rendered into the canvas</p>
+    </div>
+
+    <div id="dynamic-doughnut-example">
+        <h2>TRIPLE D - WUT WUT - Dynamic Doughnut Data!</h2>
+        <canvas id="some-dynamic-doughnut-chart"
+                data-bind="chart: { type: 'doughnut', data: DynamicDoughnutData, options: { observeChanges: true, throttle: 1000 } }"></canvas>
+        <p>The above chart is generated dynamically using the data in the view model and rendered into the canvas</p>
+        <p>If you change any of the values beneath the chart will update to reflect them every second</p>
+        <label>Red</label><input type="number" data-bind="value: RedValue" />
+        <label>Green</label><input type="number" data-bind="value: GreenValue" />
+        <label>Yellow</label><input type="number" data-bind="value: YellowValue" />
+    </div>
+    <script src="~/Scripts/Index.js"></script>
+</body>
